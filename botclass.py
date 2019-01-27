@@ -10,7 +10,7 @@ class Void(Bot):
     Custom bot class
     '''
     def __init__(self, **kwargs):
-        kwargs['command_prefix'] = ['v!', '<@529330923326668812> ']
+        kwargs['command_prefix'] = ['!!!']
         super().__init__(**kwargs)
         self.exts = [i[:-3] for i in os.listdir("exts") if i.endswith('.py')]
         self.heroku = heroku3.from_key(os.getenv('HEROKUAPIKEY'))
