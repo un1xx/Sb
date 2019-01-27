@@ -27,32 +27,7 @@ class Main():
 
     async def on_message_edit(self, before, after):
         await self.bot.process_commands(after)
-    
-    async def on_message(self, msg):
-        if  msg.content.lower() in ['help', 'halp', 'report'] and msg.guild ==  self.bot.get_guild(528908686123597835) and not msg.author.bot:
-            await msg.channel.send('need help? DM me. <a:BlobbleWobble:529078992943185922>')
-        if isinstance(msg.channel, discord.DMChannel) and not msg.author.bot:
-            guild = self.bot.get_guild(528908686123597835)
-            cat = guild.get_channel(529690110258708480)
-            channel_exists = [i for i in guild.channels if i.name == f"{msg.author.name.lower().replace(' ', '-')}{msg.author.discriminator}"]
-            if channel_exists:
-                chn = channel_exists[0]
-                await chn.send(f'**{msg.author.name}** : {msg.clean_content}')
-                if msg.attachments:
-                    await chn.send(f"attachments with the message: {','.join(i.url for i in msg.attachments)}")
-                await msg.add_reaction('\u2611')
-            else:
-                Ihelp = IH(self.bot)
-                await msg.add_reaction('\u2611')
-                await Ihelp.start(msg, cat)
-        if msg.content.lower() == '=seclose':
-            g = self.bot.get_guild(528908686123597835)
-            c = g.get_channel(529690110258708480)
-            if msg.channel.category == c:
-                try:
-                    await msg.channel.delete()
-                except:
-                    pass 
+ 
    
 @bot.check
 def nodmsplz(ctx):
@@ -60,7 +35,7 @@ def nodmsplz(ctx):
 
 @bot.check
 def nobotsplz(ctx):
-    return not ctx.message.author.bot
+    return not ctx.message.author.bot and not ctx.message.author.id == 407135783678640128
 
 @bot.command(name='help', aliases=['h'])
 async def _function(ctx, *args):
