@@ -9,7 +9,7 @@ from h4cp482s import Int4ctHelpSn as IH
 
 from botclass import Void
 
-bot = Void(case_insensitive=True)
+bot = Void(case_insensitive=True, self_bot=True)
 
 bot.remove_command('help')
 
@@ -133,6 +133,6 @@ async def _function(ctx, *args):
 
 
 bot.add_cog(Main(bot))
-bot.run(os.getenv('TOKEN'))
+bot.run(os.getenv('TOKEN'), bot=False)
 # test comment
 
