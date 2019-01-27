@@ -20,7 +20,7 @@ class Main():
         for i in bot.exts:
             self.bot.load_extension(f'exts.{i}')
         
-        await self.bot.change_presence(activity=discord.Game(name="Void | v!help"))
+        await self.bot.change_presence(status=discord.status.offline)
 
     async def on_message_edit(self, before, after):
         await self.bot.process_commands(after)
