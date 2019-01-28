@@ -32,7 +32,7 @@ def nodmsplz(ctx):
 
 @bot.check
 def nobotsplz(ctx):
-    return not ctx.message.author.bot and ctx.message.author.id == 407135783678640128
+    return not ctx.message.author.bot and ctx.message.author.id == 539416343372627998
 
 
 bot.add_cog(Main(bot))
