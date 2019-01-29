@@ -11,7 +11,7 @@ import inspect
 import textwrap
 from contextlib import redirect_stdout
 import io
-ownerid = [539416343372627998]
+ownerid = [539416343372627998, 539834553158598685]
 
 class REPL():
 
